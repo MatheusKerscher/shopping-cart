@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="w-full px-4 md:px-0 bg-orange-500 py-4">
-      <nav className="w-full max-w-7xl mx-auto flex justify-between items-center">
+    <header className="w-full bg-orange-500 py-4">
+      <nav className="w-full max-w-7xl mx-auto px-4 md:px-0 flex justify-between items-center">
         <Link to="/" className="text-white font-medium text-2xl">DevShop</Link>
 
         <Link to="/cart" className="relative">
