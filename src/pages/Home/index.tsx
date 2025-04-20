@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
+
 import HomeProduct from "../../components/HomeProduct";
-import type { Product } from "../../types/products";
+import type { Product } from "../../types/product";
 import { api } from "../../services/api";
-import { toast } from "react-toastify";
 import { toBrazilianCurrency } from "../../utils/currencyFormatter";
+import useCartContext from "../../hooks/useCartContext";
+import toast from "react-hot-toast";
 
 const Home = () => {
+  const { addCartProduct } = useCartContext();
+
   const [loading, setLoading] = useState(true);
-  const [loadingMessage, setLoandingMessage] = useState(
+  const [loadingMessage, setLoadingMessage] = useState(
     "Carregando produtos..."
   );
-  const [produtcs, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const getProducts = () => {
@@ -32,7 +36,7 @@ const Home = () => {
           }
         })
         .catch(() => {
-          setLoandingMessage("Erro ao carregar produtos :(");
+          setLoadingMessage("Erro ao carregar produtos :(");
           toast.error("Erro ao carregar produtos");
         });
     };
@@ -55,10 +59,11 @@ const Home = () => {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        {produtcs.map((product) => (
-          <HomeProduct 
+        {products.map((product) => (
+          <HomeProduct
             key={product.id}
             {...product}
+            addCartProduct={() => addCartProduct(product)}
           />
         ))}
       </div>
