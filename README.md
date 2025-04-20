@@ -8,15 +8,21 @@ Website destinado a listar produtos, visualizar detalhes do produto e gerenciar 
 1. Instalar [Node.Js](https://nodejs.org/en) e NPM
 
 
-2. Clone esse repositório e acesse a pasta
+2. Clone esse repositório
 
 ```sh
 git clone https://github.com/MatheusKerscher/shopping-cart.git
 
-cd movies-list
 ```
 
-3. Instale os pacotes NPM
+3. Acesse a pasta
+
+```sh
+cd movies-list
+
+```
+
+4. Instale os pacotes NPM
 
 ```sh
 
@@ -24,7 +30,7 @@ npm i
 
 ```
 
-4. Executar o projeto
+5. Executar o projeto
 
 ```sh
 
